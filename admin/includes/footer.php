@@ -6,17 +6,17 @@
             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
 
              <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">About US</a>
+                <a href="" class="nav-link pe-0 text-muted" target="_blank">About US</a>
               </li>
                <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">Services</a>
+                <a href="" class="nav-link pe-0 text-muted" target="_blank">Services</a>
               </li>
                <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">Contact</a>
+                <a href="" class="nav-link pe-0 text-muted" target="_blank">Contact</a>
               </li>
 
               <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">About</a>
+                <a href="" class="nav-link pe-0 text-muted" target="_blank">About</a>
               </li>
             </ul>
           </div>
@@ -32,6 +32,20 @@
   <script src="../assets/js/smooth-scrollbar.min.js"></script>
 
 
+  <!-- Alertify js -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
+<script>
+  <?php
+  if(isset($_SESSION['message']))
+  {
+  ?>
+  alertify.set('notifier','position', 'top-right');
+  alertify.success('<?=$_SESSION['message'];?>');
+  <?PHP
+  unset($_SESSION['message']);
+   }
+   ?>
+</script>
   
 </body>
 
