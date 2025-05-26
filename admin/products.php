@@ -42,7 +42,7 @@ include('../middleware/adminMiddleware.php');
                                                 </td>
                                                 <td>
                                                 <a href="edit-products.php?id=<?= $item['id'];?>" class="btn btn-primary">Edit</a>
-                                                <!-- <a href="edit-product.php?id=<?= $item['id']; ?>" class="btn btn-primary">Edit</a> -->
+                                                <!-- <a href="edit-product.php?id=" class="btn btn-primary">Edit</a> -->
 
                                                 </td>
                                                 <td>
@@ -57,7 +57,7 @@ include('../middleware/adminMiddleware.php');
                                 }
                                 else
                                 {
-
+                                    echo "no records found";
                                 }
                                 ?>
                                

@@ -1,6 +1,6 @@
 <?php 
 
-SESSION_START();
+// SESSION_START();
 if(isset($_SESSION['auth']))
 {
     $_SESSION['message'] = "You are already loggedin";

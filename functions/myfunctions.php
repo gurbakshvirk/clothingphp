@@ -1,6 +1,10 @@
 <?php
-session_start();
-include('../config/dbcon.php'); 
+session_start(); 
+
+include('./config/dbcon.php');
+include('../config/dbcon.php');
+
+
 
 function getAll($table)
 {
@@ -16,6 +20,8 @@ function getByID($table, $id)
         $query = "SELECT * FROM $table WHERE id='$id' ";
         return $query_run = mysqli_query($con, $query);        
 }
+
+
 
 function redirect($url, $message)
 {
