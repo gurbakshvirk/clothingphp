@@ -40,10 +40,10 @@ include('../middleware/adminMiddleware.php');
                                                 $item['status'] == '0'? "visible":"hidden"?>
                                                 </td>
                                                 <td>
-                                                <a href="edit-category.php?id=<?= $item['id'];?>" class="btn btn-primary">Edit</a>
-                                                <form action="code.php" method="POST">
-                                                <input type="hidden" name="category_id" value="<?= $item['id'];?>">
-                                                <button type="submit" class="btn btn-danger"  name="delete_category_btn">Delete</button>
+                                                        <a href="edit-category.php?id=<?= $item['id'];?>" class="btn btn-primary">Edit</a>
+                                                        <form action="code.php" method="POST">
+                                                        <input type="hidden" name="category_id" value="<?= $item['id'];?>">
+                                                        <button type="submit" class="btn btn-danger"  name="delete_category_btn">Delete</button>
                                                 </form>
                                                 </td>
                                             </tr>

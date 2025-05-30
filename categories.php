@@ -28,12 +28,14 @@ include('includes/header.php');
                         {
                             ?>
                             <div class="col-md-3 mb-2">
+                                <a href="products.php?category=<?= $item['slug'];?>">
                                 <div class="card shadow">
                                     <div class="card-body">
                                         <img src="uploads/<?= $item['image']; ?>" alt=" Category Image" class="w-100">
                                         <h4 class="text-center"><?= $item['name']; ?></h4>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                                 
                             <?php
