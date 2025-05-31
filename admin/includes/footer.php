@@ -68,7 +68,7 @@
 
   <!-- Alertify js -->
   <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
-<script>
+  <script>
   <?php
   if(isset($_SESSION['message']))
   {

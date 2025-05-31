@@ -34,9 +34,6 @@ if(isset($_POST['register_btn']))
         // Check if password and confirm password match
         if($password == $cpassword)
         {
-            // WARNING: This stores password in plain text — not secure!
-            // You should hash it using password_hash(), shown below in comments
-
             // Insert the user data into the users table
             $insert_query = "INSERT INTO users (name, email, phone, password) 
                              VALUES ('$name', '$email', '$phone', '$password')";
@@ -84,6 +81,7 @@ elseif(isset($_POST['login_btn']))
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_run);
+        $userid = $userdata['id'];
         $username = $userdata['name'];
         $useremail = $userdata['email'];
         $role_as = $userdata['role_as'];
@@ -92,6 +90,8 @@ elseif(isset($_POST['login_btn']))
 
         $_SESSION['AUTH_USER'] = 
         [
+
+            'user_id' => $userid,   
             'name' => $username,
              'email' => $useremail
             ];

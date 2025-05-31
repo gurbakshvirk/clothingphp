@@ -1,0 +1,23 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+underline{
+    height: 5px;
+    width: 200px;
+    background-color: red;
+    border-radius: 20px;
+}
+.custom-navbar {
+  height: 80px; /* adjust as needed */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link,
+.custom-navbar .dropdown-toggle {
+  line-height: 80px;  /* vertically center text */
+  padding-top: 0;
+  padding-bottom: 0;
+}

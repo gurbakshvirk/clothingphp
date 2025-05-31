@@ -21,14 +21,16 @@
         })
     .then((willDelete) => {
                if (willDelete) {
+
                     $.ajax({
-                    method:"POST",
-                    url:"code.php",
-                     data:{
-                        'product_id':id,
-                        'delete_product_btn': true
-                          },
-                    success: function(response){
+
+                            method:"POST",
+                            url:"code.php",
+                            data:{
+                            'product_id':id,
+                            'delete_product_btn': true
+                            },
+              success: function(response){
                         if(response == 200)
                         {
                             swal("Success!", "Product Deleted Successfully!", " Success")
