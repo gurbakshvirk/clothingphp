@@ -72,16 +72,27 @@
 }
 
 /* Transparent background initially */
-.navbar-transparent {
-  background-color: rgba(0, 0, 0, 0.0); /* Fully transparent */
+/* .navbar-transparent {
+  background-color: rgba(0, 0, 0, 0.0); 
   box-shadow: none;
-}
+} */
 
 /* Solid background on scroll */
-.navbar-scrolled {
-  background-color: #212529; /* Bootstrap dark */
+/* .navbar-scrolled {
+  background-color: #212529;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+} */
+/* Transparent initially */
+.transparent-navbar {
+  background-color: rgba(0, 0, 0, 0.63); /* semi-transparent black */
+  transition: background-color 0.3s ease;
 }
+
+/* Solid background after scroll */
+.scrolled-navbar {
+  background-color: #212529 !important; /* Bootstrap's bg-dark */
+}
+
 
 
 

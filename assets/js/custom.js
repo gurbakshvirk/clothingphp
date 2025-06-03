@@ -31,7 +31,8 @@ $(document).ready(function(){
     $('.addToCartBtn').click(function(e){
         e.preventDefault();
         var qty = $(this).closest('.product_data').find('.input-qty').val();
-        var prod_id = $(this).val('id'); 
+        var prod_id = $(this).val();  
+        // .val('id');
         // alert(prod_id);
         $.ajax({
             method: "POST",
@@ -49,6 +50,7 @@ $(document).ready(function(){
                 }
                 else if(response == 401)
                 {
+
                     alertify.success("Login to Continue");
                 }
                 else if(response == 500)

@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark shadow custom-navbar">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark shadow custom-navbar"> -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow custom-navbar transparent-navbar" id="mainNavbar">
+  <!-- existing navbar content remains unchanged -->
+
   <div class="container">
     <a class="navbar-brand" href="index.php">Classic Clothing</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="categories.php">Collections</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.php">Cart</a>
+        </li>
         <?php
         if(isset($_SESSION['auth'])) 
         {
@@ -22,8 +28,8 @@
         </a>
 
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">About Us</a></li>
+            <li><a class="dropdown-item" href="#">Contact Support</a></li>
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
         </li>
