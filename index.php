@@ -5,6 +5,7 @@ include('functions/userfunctions.php');
 include('includes/slider.php'); 
 
 ?>
+
 <div class="py-5">
     <div class="container">
         <div class="row">
@@ -42,7 +43,9 @@ include('includes/slider.php');
     </div>
 </div>
 
-<div class="py-5">
+
+
+<!-- <div class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -62,7 +65,7 @@ include('includes/slider.php');
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- <div class="py-5 bg-dark"> -->
     <!-- <div class="container">
