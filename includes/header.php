@@ -1,105 +1,53 @@
-<?php if (session_status() === PHP_SESSION_NONE) {
+<?php
+// Start the session if it hasn't been started already
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
-} ?>
-
+}
+?>
 <!doctype html>
 <html lang="en">
 
-              <head>
+<head>
+    <!-- Required meta tags for character encoding and responsive design -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-              <!-- required meta tags -->
-                <meta charset="utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-            <!-- <link href="assets/css/custom.css" rel="stylesheet"> -->
+    <!-- Bootstrap CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
-                
-                <!-- bootstrap css -->
-                
-                <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-                <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
-                <link href="assets/css/owl.carousel.min.css" rel="stylesheet"> 
 
-                <!-- <link rel="stylesheet" href="admin/assets/css/custom.css"> -->
-            <!-- <link href="assets/css/custom.css" rel="stylesheet"> -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-                <title>Hello world</title>
 
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link href="https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-           
-           
-                <!-- alertify js css -->
-                  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
-
-            <!-- bootstrap alertify  -->
-                  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css"/>
-                
-                <style>
-                  
-                  .product-card img{
-                    height: 250px;
-                    object-fit: cover;
-
-                  }
-
-                  .custom-navbar {
-                    height: 80px; /* adjust as needed */
-                  }
-
-                  .custom-navbar .navbar-brand,
-                  .custom-navbar .nav-link,
-                  .custom-navbar .dropdown-toggle {
-                    line-height: 80px;  /* vertically center text */
-                    padding-top: 0;
-                    padding-bottom: 0;
-                  }
+    <!-- custom css -->
+     <link href="assets/css/custom.css" rel="stylesheet">
 
 
 
 
-                  .custom-navbar {
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-  height: 80px;
-}
+    <!-- Owl Carousel CSS for image sliders/carousels -->
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.min.css" rel="stylesheet">
 
-.custom-navbar .navbar-brand,
-.custom-navbar .nav-link,
-.custom-navbar .dropdown-toggle {
-  line-height: 80px;
-  padding-top: 0;
-  padding-bottom: 0;
-}
+    <!-- Font Awesome for icon support -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-/* Transparent background initially */
-/* .navbar-transparent {
-  background-color: rgba(0, 0, 0, 0.0); 
-  box-shadow: none;
-} */
+    <!-- Google Fonts for typography styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" 
+        rel="stylesheet">
 
-/* Solid background on scroll */
-/* .navbar-scrolled {
-  background-color: #212529;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-} */
-/* Transparent initially */
-.transparent-navbar {
-  background-color: rgba(0, 0, 0, 0.63); /* semi-transparent black */
-  transition: background-color 0.3s ease;
-}
+    <!-- Alertify CSS for notifications/alerts -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <!-- Alertify Bootstrap theme for consistent design -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/bootstrap.min.css"/>
 
-/* Solid background after scroll */
-.scrolled-navbar {
-  background-color: #212529 !important; /* Bootstrap's bg-dark */
-}
+    <!-- Page title -->
+    <title>Hello world</title>
 
+    <!-- Internal CSS for specific style overrides and custom classes -->
+</head>
 
-
-
-
-
-                </style>
-              
-              </head>
-        <body>
-<?php include('navbar.php');?>
+<body>
+    <!-- Include the navigation bar from an external file -->
+    <?php include('navbar.php'); ?>

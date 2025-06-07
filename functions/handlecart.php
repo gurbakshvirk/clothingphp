@@ -1,95 +1,101 @@
 <?php
-session_start();
-include('../config/dbcon.php');
+session_start(); // Start session to access session variables
+include('../config/dbcon.php'); // Include database connection file
 
+// Log that the script has started (for debugging)
 file_put_contents("log.txt", "Script started\n", FILE_APPEND);
 
+// Check if user is authenticated
 if (isset($_SESSION['auth'])) {
-    // file_put_contents("log.txt", "Session found\n", FILE_APPEND);
 
+    // Check if the 'scope' is passed via POST (defines the action: add, update, delete)
     if (isset($_POST['scope'])) {
-        $scope = $_POST['scope'];
-        // file_put_contents("log.txt", "Scope: $scope\n", FILE_APPEND);
+        $scope = $_POST['scope']; // Get the action type from the request
 
         switch ($scope) {
+
+            // ========== ADD PRODUCT TO CART ==========
             case "add":
-                $prod_id = $_POST['prod_id'];
-                $prod_qty = $_POST['prod_qty'];
-                $user_id = $_SESSION['AUTH_USER']['user_id']; // <- FIXED
+                $prod_id = $_POST['prod_id']; // Product ID from POST
+                $prod_qty = $_POST['prod_qty']; // Quantity from POST
+                $user_id = $_SESSION['AUTH_USER']['user_id']; // Get user ID from session
+
+                // Check if the product is already in the user's cart
                 $chk_existing_cart = "SELECT * FROM carts WHERE prod_id='$prod_id' AND user_id='$user_id'";
                 $chk_existing_cart_run = mysqli_query($con, $chk_existing_cart); 
 
-             // file_put_contents("log.txt", "Inserting: user=$user_id, prod=$prod_id, qty=$prod_qty\n", FILE_APPEND);
-                if(mysqli_num_rows($chk_existing_cart_run)>0)
-                    {
-                        Echo "existing";
-                    }
-                    else{
-
-                $insert_query = "INSERT INTO carts (user_id, prod_id, prod_qty) VALUES ('$user_id', '$prod_id', '$prod_qty')";
-                $insert_query_run = mysqli_query($con, $insert_query);
-
-                if ($insert_query_run) {
-                    echo 201;
+                if (mysqli_num_rows($chk_existing_cart_run) > 0) {
+                    echo "existing"; // Product already in cart
                 } else {
-                    echo "MySQL error: " . mysqli_error($con);
-                }
-                         }
+                    // Insert the new product into the cart
+                    $insert_query = "INSERT INTO carts (user_id, prod_id, prod_qty) VALUES ('$user_id', '$prod_id', '$prod_qty')";
+                    $insert_query_run = mysqli_query($con, $insert_query);
 
-                break;
-                case "update":
-                        $prod_id = $_POST['prod_id'];
-                        $prod_qty = $_POST['prod_qty']; 
-                        $user_id = $_SESSION['AUTH_USER']['user_id'];
-                        $chk_existing_cart = "SELECT * FROM carts WHERE prod_id='$prod_id' AND user_id='$user_id'";
-                        $chk_existing_cart_run = mysqli_query($con, $chk_existing_cart); 
-
-                    if(mysqli_num_rows($chk_existing_cart_run)>0)
-                    {
-                       $update_query = "UPDATE carts SET prod_qty= '$prod_qty' WHERE prod_id='$prod_id' AND user_id='$user_id'";
-                       $update_query_run = mysqli_query($con, $update_query);
-                       if($update_query_run){
-                        echo 200;
-                       }
-                       else{
-                        echo 500;
-                       }
+                    if ($insert_query_run) {
+                        echo 201; // Successfully added
+                    } else {
+                        echo "MySQL error: " . mysqli_error($con); // SQL error
                     }
-                    else{
-                        echo"Something went wrong";
-                        } 
-                        break;
+                }
+                break;
 
-                        case "delete": 
-                            $cart_id = $_POST['cart_id'];
-                            $user_id = $_SESSION['AUTH_USER']['user_id']; // <- FIXED
-                            $chk_existing_cart = "SELECT * FROM carts WHERE id='$cart_id' AND user_id='$user_id'";
-                            $chk_existing_cart_run = mysqli_query($con, $chk_existing_cart); 
+            // ========== UPDATE PRODUCT QUANTITY ==========
+            case "update":
+                $prod_id = $_POST['prod_id'];
+                $prod_qty = $_POST['prod_qty'];
+                $user_id = $_SESSION['AUTH_USER']['user_id'];
 
+                // Check if product exists in user's cart
+                $chk_existing_cart = "SELECT * FROM carts WHERE prod_id='$prod_id' AND user_id='$user_id'";
+                $chk_existing_cart_run = mysqli_query($con, $chk_existing_cart); 
 
-                            if(mysqli_num_rows($chk_existing_cart_run)>0)
-                                {
-                                $delete_query = "DELETE FROM carts WHERE id='$cart_id' ";
-                                $delete_query_run = mysqli_query($con, $delete_query);
-                                if($delete_query_run){
-                                    echo 200;
-                                }
-                                else{
-                                    echo "Something went wrong";
-                                }
-                                }
-                                else{
-                                    echo"Something went wrong";
-                                    }
-                                    break;
+                if (mysqli_num_rows($chk_existing_cart_run) > 0) {
+                    // Update the quantity
+                    $update_query = "UPDATE carts SET prod_qty= '$prod_qty' WHERE prod_id='$prod_id' AND user_id='$user_id'";
+                    $update_query_run = mysqli_query($con, $update_query);
 
-                            default:
-                                echo 500;
-                            }
+                    if ($update_query_run) {
+                        echo 200; // Successfully updated
+                    } else {
+                        echo 500; // Error during update
+                    }
+                } else {
+                    echo "Something went wrong"; // Product not found in cart
+                }
+                break;
 
+            // ========== DELETE ITEM FROM CART ==========
+            case "delete":
+                $cart_id = $_POST['cart_id'];
+                $user_id = $_SESSION['AUTH_USER']['user_id'];
+
+                // Check if cart item exists for the user
+                $chk_existing_cart = "SELECT * FROM carts WHERE id='$cart_id' AND user_id='$user_id'";
+                $chk_existing_cart_run = mysqli_query($con, $chk_existing_cart); 
+
+                if (mysqli_num_rows($chk_existing_cart_run) > 0) {
+                    // Delete the item from the cart
+                    $delete_query = "DELETE FROM carts WHERE id='$cart_id'";
+                    $delete_query_run = mysqli_query($con, $delete_query);
+
+                    if ($delete_query_run) {
+                        echo 200; // Successfully deleted
+                    } else {
+                        echo "Something went wrong"; // SQL error during delete
+                    }
+                } else {
+                    echo "Something went wrong"; // Cart item not found
+                }
+                break;
+
+            // ========== INVALID SCOPE ==========
+            default:
+                echo 500; // Invalid action (scope)
+        }
     }
+
 } else {
-    echo 401;
+    // If the user is not authenticated
+    echo 401; // Unauthorized access
 }
 ?>
-

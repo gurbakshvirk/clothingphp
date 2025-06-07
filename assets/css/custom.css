@@ -1,15 +1,105 @@
-*{
-    font-family: 'Roboto', sans-serif;
+
+*{padding: 0;
+margin: 0; 
+box-sizing: 0;
+font-family: 'Roboto', sans-serif;
+/* outline: 1px solid red;  */
+/* to visualize boundaries */
+/* border-box; */
 }
+
+/* Style all navbar links */
+.navbar .nav-link {
+  color:rgba(0, 0, 0, 0.578) !important;        /* Custom text color */
+  font-weight: 800;                 /* Optional: slightly bold */
+  transition: color 0.3s ease;
+}
+
+/* Hover effect */
+/* .navbar .nav-link:hover {
+  color: #0a0a0a !important;
+  text-decoration: underline;
+} */
+.navbar .nav-link:hover {
+  color: #ffffff !important; /* Optional: change text color to white */
+  text-shadow: 
+    0 0 2px #888888, 
+    0 0 70px #888888, 
+    0 0 12px #888888;
+  background-color: rgba(255, 255, 255, 0.605); /* soft background */
+  border-radius: 10px;
+}
+
+/* Optional: Active link style */
+/* .navbar .nav-link.active {
+  color: #3dc9f3 !important;        
+  font-weight: bold;
+} */
+/* .navbar .nav-link:hover {
+  background-color: rgba(23, 23, 22, 0.674);
+  border-radius: 10px;
+} */
+
+
+
+
+.product-card img {
+            height: 250px;
+            object-fit: cover; /* Maintains aspect ratio and covers container */
+        }
+
+        /* Custom navbar height and alignment */
+        .custom-navbar {
+            height: 80px;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease; /* smooth transition */
+        }
+		.nav-item{
+			text-decoration-color: black;
+		}
+
+        /* Vertical alignment for nav content */
+        .custom-navbar .navbar-brand,
+        .custom-navbar .nav-link,
+        .custom-navbar .dropdown-toggle {
+            line-height: 80px;  /* Vertically center nav links */
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Transparent navbar style for initial page load */
+        .transparent-navbar {
+            background-color: rgba(250, 248, 248, 0.532); /* Semi-transparent black background */
+            transition: background-color 0.3s ease;
+        }
+
+        /* Solid navbar style after scrolling */
+        .scrolled-navbar {
+            background-color: #212529c3 !important; /* Solid dark background */
+        }
+
+
+
+.logo-img {
+  height: 120px;     /* Adjust as needed */
+  width: auto;      /* Keeps aspect ratio */
+  object-fit: contain;
+}
+
+
+
+body {
+  overflow-x: hidden;
+}
+
 a{
     text-decoration: none;
 }
-underline{
+/* underline{
     height: 5px;
     width: 200px;
     background-color: red;
     border-radius: 20px;
-}
+} */
 .custom-navbar {
   height: 80px; /* adjust as needed */
 }
@@ -21,3 +111,109 @@ underline{
   padding-top: 0;
   padding-bottom: 0;
 }
+
+
+
+
+
+/* banner */
+.blog {
+	padding-bottom: 55px;
+}
+
+.banner__item {
+	position: relative;
+	overflow: hidden;
+}
+
+.banner__item:hover .banner__item__text a:after {
+	width: 40px;
+	background: #e53637;
+}
+
+.banner__item.banner__item--middle {
+	margin-top: -75px;
+}
+
+.banner__item.banner__item--middle .banner__item__pic {
+	float: none;
+}
+
+.banner__item.banner__item--middle .banner__item__text {
+	position: relative;
+	top: 0;
+	left: 0;
+	max-width: 100%;
+	padding-top: 22px;
+}
+
+.banner__item.banner__item--last {
+	margin-top: 100px;
+}
+
+.banner__item__pic {
+	float: right;
+}
+
+.banner__item__text {
+	max-width: 300px;
+	position: absolute;
+	left: 0;
+	top: 140px;
+}
+
+.banner__item__text h2 {
+	color: #111111;
+	font-weight: 700;
+	line-height: 46px;
+	margin-bottom: 10px;
+}
+
+.banner__item__text a {
+	display: inline-block;
+	color: #111111;
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	padding: 3px 0;
+	position: relative;
+}
+
+.banner__item__text a:after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: #111111;
+	content: "";
+	-webkit-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+}
+.rightimg{
+    object-fit: cover;
+    width: 100vh;
+    height: 90vh;
+}
+
+
+
+
+.footercustom{
+	background-color: none;
+  background-color: #57534f; /* or any color you want */
+}
+
+
+.accordion-button:not(.collapsed) {
+  background-color: #7b7875 !important; /* light orange or any custom color */
+  color: #000 !important; /* black text */
+}
+
+
+.accordion-button:hover {
+  background-color: #9ebcc9 !important; /* slightly darker orange */
+}
+
